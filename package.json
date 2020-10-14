@@ -1,0 +1,19 @@
+{
+  "name": "typescript-5i4anz",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "rxjs": "^6.6.3"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --config ./build/webpack.config.js"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^4.5.0",
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
