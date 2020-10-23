@@ -8,7 +8,6 @@ const STUBS = {
 }
 
 var mockApi = (req, res) => {
-  console.log(req);
   const matchingStub = Object.keys(STUBS).find(url => req.originalUrl.includes(url));
   if (matchingStub) {
     return res.json(STUBS[matchingStub]);
