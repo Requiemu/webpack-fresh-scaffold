@@ -19,7 +19,7 @@ var mockApi = (req, res) => {
 module.exports = {
   entry: './src/index.ts',
   mode: 'development',
-  devtool: false,
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
