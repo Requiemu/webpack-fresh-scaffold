@@ -6,7 +6,8 @@
     "rxjs": "^6.6.3"
   },
   "scripts": {
-    "start": "webpack-dev-server --config ./build/webpack.config.js"
+    "start": "webpack-dev-server --config ./build/webpack.development.js",
+    "build": "webpack build --config ./build/webpack.production.js"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
