@@ -1,0 +1,40 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const baseConfig = require('./webpack.base.js');
+
+// Mock Api 
+// TODO: load all file in src/mock
+const STUBS = {
+  test: require('../src/mock/test.json'),
+}
+
+var mockApi = (req, res) => {
+  const matchingStub = Object.keys(STUBS).find(url => req.originalUrl.includes(url));
+  if (matchingStub) {
+    return res.json(STUBS[matchingStub]);
+  }
+
+  return res.json({});
+}
+
+module.exports = {
+  ...baseConfig,
+  mode: 'development',
+  devtool: 'eval-source-map',
+  devServer: {
+    contentBase: './dist',
+    compress: true,
+    port: 9123,
+    open: true,
+    proxy: [
+      {
+        context: ['/api'], //add more here if you want
+        secure: false,
+        changeOrigin: true,
+        bypass: mockApi
+      },
+    ]
+  }
+};
+
+
