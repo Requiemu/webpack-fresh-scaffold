@@ -3,7 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: {
+        index: './src/index.ts'
+    },
     module: {
         rules: [
             {
@@ -60,6 +62,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [new HtmlWebpackPlugin({
-        template: 'src/index.html'
+        template: 'src/index.html',
+        chunks: 'index'
     })]
 }
