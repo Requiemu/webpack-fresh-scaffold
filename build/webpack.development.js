@@ -1,3 +1,4 @@
+const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
 
 // Mock Api 
@@ -15,8 +16,7 @@ var mockApi = (req, res) => {
   return res.json({});
 }
 
-module.exports = {
-  ...baseConfig,
+const config = merge(baseConfig, {
   mode: 'development',
   devtool: 'eval-source-map',
   devServer: {
@@ -33,6 +33,8 @@ module.exports = {
       },
     ]
   }
-};
+})
+
+module.exports = config;
 
 
